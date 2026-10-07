@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntiWatt | Sistema Fotovoltaico Residencial Off-Grid en Santiago del Estero y Tucumán</title>
+    <meta name="description" content="Sistema Fotovoltaico Residencial Off-Grid con Entrada de Red de 5 kW / 5,12 kWh llave en mano en Santiago del Estero y Tucumán. Ingeniería, respaldo y generación propia.">
+    
+    <!-- OpenGraph SEO -->
+    <meta property="og:title" content="IntiWatt | Solución Energética Off-Grid Residencial">
+    <meta property="og:description" content="Generación solar, almacenamiento en batería de litio y respaldo de red eléctrica. Solución integral llave en mano en Santiago del Estero y Tucumán.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbe1',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                        },
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .flow-line {
+            stroke-dasharray: 8;
+            animation: dash 25s linear infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -100;
+            }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .tech-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .amber-glow {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.25);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Topbar -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Vectorial Fiel al Logo IntiWatt -->
+            <a href="https://intiwatt.com" class="flex items-center gap-3 group">
+                <svg class="h-11 w-11 text-brand-500 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Rays / Circuit nodes -->
+                    <circle cx="50" cy="50" r="28" stroke="currentColor" stroke-width="4"/>
+                    <!-- Chip core -->
+                    <rect x="42" y="42" width="16" height="16" rx="2" stroke="currentColor" stroke-width="3" fill="none"/>
+                    <rect x="46" y="46" width="8" height="8" rx="1" fill="currentColor"/>
+                    <!-- Pin lines around chip -->
+                    <line x1="44" y1="38" x2="44" y2="42" stroke="currentColor" stroke-width="3"/>
+                    <line x1="50" y1="38" x2="50" y2="42" stroke="currentColor" stroke-width="3"/>
+                    <line x1="56" y1="38" x2="56" y2="42" stroke="currentColor" stroke-width="3"/>
+                    
+                    <line x1="44" y1="58" x2="44" y2="62" stroke="currentColor" stroke-width="3"/>
+                    <line x1="50" y1="58" x2="50" y2="62" stroke="currentColor" stroke-width="3"/>
+                    <line x1="56" y1="58" x2="56" y2="62" stroke="currentColor" stroke-width="3"/>
+
+                    <line x1="38" y1="44" x2="42" y2="44" stroke="currentColor" stroke-width="3"/>
+                    <line x1="38" y1="50" x2="42" y2="50" stroke="currentColor" stroke-width="3"/>
+                    <line x1="38" y1="56" x2="42" y2="56" stroke="currentColor" stroke-width="3"/>
+
+                    <line x1="58" y1="44" x2="62" y2="44" stroke="currentColor" stroke-width="3"/>
+                    <line x1="58" y1="50" x2="62" y2="50" stroke="currentColor" stroke-width="3"/>
+                    <line x1="58" y1="56" x2="62" y2="56" stroke="currentColor" stroke-width="3"/>
+
+                    <!-- Sun circuit rays -->
+                    <path d="M50 22V8 M50 8AA3 3 0 1 0 50 8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M50 78V92" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="50" cy="92" r="3" fill="currentColor"/>
+                    <circle cx="50" cy="8" r="3" fill="currentColor"/>
+
+                    <path d="M78 50H92" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M22 50H8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="92" cy="50" r="3" fill="currentColor"/>
+                    <circle cx="8" cy="50" r="3" fill="currentColor"/>
+
+                    <path d="M70 30L80 20" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="80" cy="20" r="3" fill="currentColor"/>
+
+                    <path d="M30 70L20 80" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="20" cy="80" r="3" fill="currentColor"/>
+
+                    <path d="M70 70L80 80" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="80" cy="80" r="3" fill="currentColor"/>
+
+                    <path d="M30 30L20 20" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-extrabold tracking-tight text-navy-900 leading-none">Inti<span class="text-brand-500">Watt</span></span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-slate-500 mt-1">Eficiencia Energética</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                <a href="https://intiwatt.com" class="hover:text-brand-600 transition-colors">Inicio</a>
+                <a href="#como-funciona" class="hover:text-brand-600 transition-colors">¿Cómo Funciona?</a>
+                <a href="#componentes" class="hover:text-brand-600 transition-colors">Equipamiento</a>
+                <a href="#capacidad" class="hover:text-brand-600 transition-colors">¿Qué Alimenta?</a>
+                <a href="#inversion" class="hover:text-brand-600 transition-colors">Inversión</a>
+                <a href="#proceso" class="hover:text-brand-600 transition-colors">Proceso</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="flex items-center gap-3">
+                <a href="#evaluar" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2">
+                    <span>Evaluar mi instalación</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-slate-100 via-white to-slate-50 pt-12 pb-20 overflow-hidden border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Text Column -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 border border-brand-500/30 text-brand-800 text-xs font-bold tracking-wide uppercase">
+                        <i class="fa-solid fa-location-dot"></i> Santiago del Estero y Tucumán, Argentina
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight">
+                        Sistema Fotovoltaico Residencial <span class="text-brand-600 underline decoration-brand-500/40 underline-offset-8">Off-Grid</span> con Entrada de Red
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        Una solución integral de ingeniería diseñada para <strong class="text-navy-900 font-semibold">generar, almacenar y gestionar tu propia energía</strong>, manteniendo la red eléctrica como respaldo automático cuando sea necesario.
+                    </p>
+
+                    <!-- Key Technical Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm text-center">
+                            <span class="block text-2xl font-black text-navy-900">5 kW</span>
+                            <span class="text-xs text-slate-500 font-medium">Potencia Inversor</span>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm text-center">
+                            <span class="block text-2xl font-black text-navy-900">5,12 kWh</span>
+                            <span class="text-xs text-slate-500 font-medium">Batería Litio</span>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm text-center">
+                            <span class="block text-2xl font-black text-navy-900">3,66 kWp</span>
+                            <span class="text-xs text-slate-500 font-medium">Potencia Solar</span>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm text-center">
+                            <span class="block text-2xl font-black text-brand-600">Llave en Mano</span>
+                            <span class="text-xs text-slate-500 font-medium">Instalación Total</span>
+                        </div>
+                    </div>
+
+                    <!-- Commercial Value Slogan -->
+                    <div class="p-4 rounded-xl bg-navy-900 text-white flex items-center gap-4">
+                        <div class="p-3 bg-brand-500 text-navy-900 rounded-lg font-black text-xl">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-brand-500 uppercase tracking-widest font-bold">Concepto IntiWatt</p>
+                            <p class="text-sm font-medium text-slate-200">
+                                "Donde otros venden equipos, nosotros diseñamos resultados energéticos reales."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hero Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#evaluar" class="bg-brand-500 hover:bg-brand-600 text-white text-center font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm uppercase tracking-wider flex items-center justify-center gap-3">
+                            <span>Quiero evaluar mi instalación</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </a>
+                        <button onclick="openWhatsApp()" class="bg-white hover:bg-slate-50 text-navy-900 border border-slate-300 text-center font-bold px-6 py-4 rounded-xl transition-all text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-600 text-lg"></i>
+                            <span>Consultar por WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Visual Flow Diagram -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl relative amber-glow">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+                            <h3 class="font-bold text-navy-900 text-sm uppercase tracking-wider flex items-center gap-2">
+                                <i class="fa-solid fa-diagram-project text-brand-500"></i> Diagrama Operativo de Energía
+                            </h3>
+                            <span class="text-[11px] bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Sistema Activo
+                            </span>
+                        </div>
+
+                        <!-- Graphic Visual Architecture SVG -->
+                        <div class="relative w-full h-80 bg-slate-900 rounded-xl p-4 flex flex-col justify-between overflow-hidden">
+                            <!-- SVG Flow lines -->
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 300" fill="none">
+                                <path d="M 200 60 L 200 130" stroke="#f59e0b" stroke-width="2" class="flow-line"/>
+                                <path d="M 200 170 L 200 240" stroke="#3b82f6" stroke-width="2" class="flow-line"/>
+                                <path d="M 180 150 L 80 150 L 80 230" stroke="#10b981" stroke-width="2" class="flow-line"/>
+                                <path d="M 220 150 L 320 150 L 320 230" stroke="#64748b" stroke-width="2" class="flow-line"/>
+                            </svg>
+
+                            <!-- Top Element: Solar Panels -->
+                            <div class="flex justify-center z-10">
+                                <div class="bg-slate-800 border border-brand-500/50 p-2.5 rounded-lg text-center w-40 text-white shadow-md">
+                                    <i class="fa-solid fa-sun text-brand-500 text-xl mb-1"></i>
+                                    <p class="text-xs font-bold text-slate-200">6 Paneles Bifaciales</p>
+                                    <p class="text-[10px] text-brand-500 font-mono">3,45 – 3,66 kWp Sol</p>
+                                </div>
+                            </div>
+
+                            <!-- Middle Center: Inverter -->
+                            <div class="flex justify-center z-10 my-auto">
+                                <div class="bg-brand-500 text-navy-900 p-3 rounded-xl text-center w-48 shadow-lg font-bold">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-bolt text-lg"></i>
+                                        <span class="text-xs uppercase font-extrabold tracking-wider">Inversor 5 kW</span>
+                                    </div>
+                                    <p class="text-[10px] text-navy-950 font-medium">Gestión Inteligente de Energía</p>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Row: Battery - Home - Grid -->
+                            <div class="grid grid-cols-3 gap-2 z-10">
+                                <!-- Battery -->
+                                <div class="bg-slate-800 border border-emerald-500/50 p-2 rounded-lg text-center text-white">
+                                    <i class="fa-solid fa-battery-three-quarters text-emerald-400 text-base mb-0.5"></i>
+                                    <p class="text-[11px] font-bold">Batería Litio</p>
+                                    <p class="text-[9px] text-emerald-400 font-mono">5,12 kWh LiFePO4</p>
+                                </div>
+
+                                <!-- Home Cargas -->
+                                <div class="bg-slate-800 border border-blue-500/50 p-2 rounded-lg text-center text-white">
+                                    <i class="fa-solid fa-house-power text-blue-400 text-base mb-0.5"></i>
+                                    <p class="text-[11px] font-bold">Consumos Casa</p>
+                                    <p class="text-[9px] text-blue-400 font-mono">Prioridad Total</p>
+                                </div>
+
+                                <!-- Red Eléctrica -->
+                                <div class="bg-slate-800 border border-slate-600 p-2 rounded-lg text-center text-white">
+                                    <i class="fa-solid fa-tower-cell text-slate-400 text-base mb-0.5"></i>
+                                    <p class="text-[11px] font-bold">Red Eléctrica</p>
+                                    <p class="text-[9px] text-slate-400 font-mono">Respaldo Auxiliar</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-500 mt-4 text-center leading-relaxed">
+                            El inversor central coordina automáticamente el flujo: atiende consumos, guarda sobrante en la batería y recurre a la red sólo cuando se requiere.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCEPTO OFF-GRID EXPLAINED SECTION -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-600 tracking-widest uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Concepto Claro y Transparente</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                    ¿Qué significa realmente "Off-Grid con Entrada de Red"?
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+                    Un sistema Off-Grid tradicional está aislado de la red. Esta ingeniería de IntiWatt incorpora la <strong class="text-navy-900">entrada de red como respaldo estratégico</strong>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Solar Direct Flow -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">1. Generación Solar Directa</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-wider font-mono mb-3">SOL → PANELES → INVERSOR → CONSUMOS</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Durante el día, la energía del sol abastece en tiempo real los consumos eléctricos en uso de tu vivienda.
+                    </p>
+                </div>
+
+                <!-- Battery Storage Flow -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-battery-full"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">2. Almacenamiento Inteligente</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-wider font-mono mb-3">EXCEDENTE SOLAR → BATERÍA → NOCHE</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        El excedente de energía no consumido se guarda en la batería de litio para abastecer la casa durante la noche o nublados.
+                    </p>
+                </div>
+
+                <!-- Grid Backup Flow -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all">
+                    <div class="w-12 h-12 bg-slate-200 text-navy-900 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">3. Red como Respaldo</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-wider font-mono mb-3">RED → INVERSOR → RESPALDO AUXILIAR</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Si la batería se agota y no hay sol suficiente, el inversor conmuta suavemente a la red pública sin interrumpir el servicio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS IN PRACTICE (DAY, NIGHT, BLACKOUT) -->
+    <section id="como-funciona" class="py-16 bg-slate-900 text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-500 tracking-widest uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/30">Dinámica Diario y Continuidad</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3">
+                    ¿Cómo funciona la vivienda paso a paso?
+                </h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">
+                    Gestión automática en cada momento del día sin intervención manual del usuario.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Day Scenario -->
+                <div class="bg-slate-800/90 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold font-mono text-brand-400 bg-brand-500/10 px-2.5 py-1 rounded">ESCENARIO DÍA</span>
+                            <i class="fa-solid fa-sun text-brand-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Durante las horas de sol</h3>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-400 mt-1 text-xs"></i>
+                                <span>Los paneles captan energía y alimentan de forma prioritaria los consumos de la vivienda.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-400 mt-1 text-xs"></i>
+                                <span>Todo excedente de generación disponible se destina a recargar la batería de litio.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-700/60 text-xs text-brand-400 font-mono">
+                        Estado: Generación activa + Carga de Batería
+                    </div>
+                </div>
+
+                <!-- Night Scenario -->
+                <div class="bg-slate-800/90 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded">ESCENARIO NOCHE</span>
+                            <i class="fa-solid fa-moon text-indigo-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Durante la noche</h3>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1 text-xs"></i>
+                                <span>Los paneles dejan de generar. La vivienda utiliza de manera autónoma la energía acumulada en la batería.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1 text-xs"></i>
+                                <span>Si la batería alcanza el límite operativo programado, el inversor utiliza la red como respaldo suave.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-700/60 text-xs text-indigo-400 font-mono">
+                        Estado: Descarga controlada de Litio
+                    </div>
+                </div>
+
+                <!-- Blackout Scenario -->
+                <div class="bg-slate-800/90 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded">CORTE DE LUZ</span>
+                            <i class="fa-solid fa-bolt-lightning text-emerald-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">¿Y si hay un corte en la red?</h3>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emerald-400 mt-1 text-xs"></i>
+                                <span>El inversor mantiene alimentados los consumos esenciales y respaldados al instante.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emerald-400 mt-1 text-xs"></i>
+                                <span>La autonomía real dependerá de las cargas encendidas, la potencia instantánea y la irradiancia solar.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-700/60 text-xs text-emerald-400 font-mono">
+                        Estado: Respaldo Instantáneo por Batería / Sol
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Clarification callout -->
+            <div class="mt-8 bg-slate-800 border-l-4 border-brand-500 p-4 rounded-r-xl text-xs sm:text-sm text-slate-300 flex items-start gap-3">
+                <i class="fa-solid fa-circle-info text-brand-500 text-lg mt-0.5"></i>
+                <div>
+                    <strong class="text-white font-semibold">Claridad técnica IntiWatt:</strong> Un sistema de 5 kW / 5,12 kWh ofrece una excelente cobertura residencial, pero la autonomía total siempre está sujeta a los electrodomésticos en uso simultáneo y al perfil de consumo del hogar.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPONENTES DEL SISTEMA -->
+    <section id="componentes" class="py-16 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-600 tracking-widest uppercase bg-brand-100 px-3 py-1 rounded-full">Ingeniería de Grado Residencial</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                    Componentes Técnicos del Sistema
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                    Equipamiento de máxima eficiencia dimensionado específicamente para el clima y radiación del NOA (Santiago del Estero y Tucumán).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Component 1: Paneles -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-solar-panel"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-1">Generación Fotovoltaica</h3>
+                        <p class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-3">6 Módulos Bifaciales N-Type TOPCon</p>
+                        <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                            <li>• Potencia individual: <strong class="text-navy-900">575 – 610 W</strong> por módulo.</li>
+                            <li>• Potencia total pico instalada: <strong class="text-navy-900">3,45 – 3,66 kWp</strong>.</li>
+                            <li>• Celda N-Type TOPCon de alta tolerancia térmica.</li>
+                            <li>• Rendimiento bifacial superior con radiación difusa.</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                        * kWp (kilovatio pico) indica la máxima capacidad de generación en condiciones óptimas de radiación.
+                    </div>
+                </div>
+
+                <!-- Component 2: Inversor -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-navy-900 text-brand-500 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-1">Inversor Off-Grid Central</h3>
+                        <p class="text-xs font-semibold text-navy-800 uppercase tracking-wider mb-3">1 Inversor Monofásico 5 kW / 48 V</p>
+                        <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                            <li>• Potencia de salida continua: <strong class="text-navy-900">5.000 W (5 kW)</strong>.</li>
+                            <li>• <strong class="text-navy-900">Doble seguidor MPPT</strong> de máxima eficiencia.</li>
+                            <li>• Puerto de comunicación inteligente <strong class="text-navy-900">CAN / RS485 / Wi-Fi</strong>.</li>
+                            <li>• Conmutación automática e inadvertida entre Sol, Batería y Red.</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                        * Encargado de transformar la energía y gestionar las prioridades de consumo y carga.
+                    </div>
+                </div>
+
+                <!-- Component 3: Batería -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-battery-three-quarters"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-1">Almacenamiento en Litio</h3>
+                        <p class="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-3">1 Batería LiFePO4 de 5,12 kWh</p>
+                        <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                            <li>• Capacidad de banco: <strong class="text-navy-900">100 Ah / 51,2 V (5,12 kWh)</strong>.</li>
+                            <li>• Profundidad de descarga de referencia: <strong class="text-navy-900">90% DOD</strong>.</li>
+                            <li>• <strong class="text-navy-900">BMS Integrado</strong> (Sistema Electrónico de Gestión y Protección).</li>
+                            <li>• Química Segura LiFePO4 (Litio-Ferrofosfato).</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                        * Permite mantener operativos consumos nocturnos o esenciales durante interrupciones.
+                    </div>
+                </div>
+
+                <!-- Component 4: Estructura -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-1">Soporte y Estructura</h3>
+                        <p class="text-xs font-semibold text-slate-600 uppercase tracking-wider mb-3">Coplanar de Aluminio Anodizado</p>
+                        <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                            <li>• Estructura específica para 6 módulos fotovoltaicos.</li>
+                            <li>• Perfilería ligera de alta resistencia a vientos.</li>
+                            <li>• Tornillería y fijaciones de acero inoxidable.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Component 5: Protecciones -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-shield-cat"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-1">Protecciones y Cableado</h3>
+                        <p class="text-xs font-semibold text-amber-700 uppercase tracking-wider mb-3">Tableros DC y AC Normalizados</p>
+                        <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                            <li>• Cableado solar con protección UV e intemperie.</li>
+                            <li>• Protecciones en Corriente Continua (DC) y Alterna (AC).</li>
+                            <li>• Conectores normalizados, caja de unión y fusibles de seguridad.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Component 6: Monitoreo -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-1">Monitoreo Remoto</h3>
+                        <p class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">Conectividad en Tiempo Real</p>
+                        <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                            <li>• Módulo Wi-Fi para comunicación con servidor seguro.</li>
+                            <li>• Supervisión en vivo de generación, carga de batería y consumo desde tu smartphone.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUÉ INCLUYE EL PRECIO: LLAVE EN MANO -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-5">
+                        <span class="text-xs font-bold text-brand-500 uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/30">Servicio Integral IntiWatt</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+                            Solución 100% <span class="text-brand-500">Llave en Mano</span>
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                            No vendemos cajas ni paneles sueltos. El valor publicado cubre la totalidad del ciclo de vida técnico del proyecto para que no tengas contingencias ni sorpresas.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Block 1 -->
+                        <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-drafting-compass text-brand-500 text-lg"></i>
+                                <h3 class="font-bold text-white text-sm">1. Ingeniería</h3>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Dimensionamiento, análisis eléctrico de cargas, definición de esquemas de protección y elaboración de documentación.
+                            </p>
+                        </div>
+
+                        <!-- Block 2 -->
+                        <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-boxes-packing text-brand-500 text-lg"></i>
+                                <h3 class="font-bold text-white text-sm">2. Equipamiento</h3>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Provisión completa de paneles, inversor, batería de litio, estructuras, tableros, protecciones y cableado solar.
+                            </p>
+                        </div>
+
+                        <!-- Block 3 -->
+                        <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-tools text-brand-500 text-lg"></i>
+                                <h3 class="font-bold text-white text-sm">3. Instalación</h3>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Montaje mecánico especializado en cubierta, conexionado eléctrico normado y cableado de potencia.
+                            </p>
+                        </div>
+
+                        <!-- Block 4 -->
+                        <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-sliders text-brand-500 text-lg"></i>
+                                <h3 class="font-bold text-white text-sm">4. Puesta en Servicio</h3>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Configuración de parámetros de batería/inversor, vincular monitoreo Wi-Fi, pruebas de carga y capacitación al cliente.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECNOLOGÍA EXPLICADA SIMPLE Y COMERCIAL -->
+    <section class="py-16 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-navy-900 tracking-widest uppercase bg-slate-200 px-3 py-1 rounded-full">Solidez Técnica</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                    Tecnología que compone el Sistema
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                    Estándares tecnológicos modernos explicados en lenguaje directo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- TOPCon -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <span class="text-xs font-mono font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded">MÓDULOS SOLAR</span>
+                    <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">N-Type TOPCon</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Células fotovoltaicas de última generación con menor degradación anual y excelente tolerancia a las elevadas temperaturas de Santiago del Estero y Tucumán.
+                    </p>
+                </div>
+
+                <!-- Bifacial -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <span class="text-xs font-mono font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded">CAPTACIÓN DOBLE CARA</span>
+                    <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">Diseño Bifacial</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Los módulos capturan radiación solar directa por la cara frontal y radiación difusa/reflejada por la cara posterior cuando la superficie de montaje lo permite.
+                    </p>
+                </div>
+
+                <!-- LiFePO4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <span class="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded">ALMACENAMIENTO SEGURO</span>
+                    <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">Batería LiFePO4</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Química de Litio-Ferrofosfato diseñada para uso estacionario intensivo. Ofrece estabilidad térmica superior, alta seguridad operativa y prolongada vida útil.
+                    </p>
+                </div>
+
+                <!-- BMS -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <span class="text-xs font-mono font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded">PROTECCIÓN ELECTRÓNICA</span>
+                    <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">BMS Integrado</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Sistema informático interno que monitorea voltaje, corriente y temperatura de las celdas de la batería para evitar sobrecargas o descargas profundas.
+                    </p>
+                </div>
+
+                <!-- MPPT -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <span class="text-xs font-mono font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded">EFICIENCIA DE DÍAS NUBLADOS</span>
+                    <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">Doble MPPT</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Algoritmo de seguimiento del punto de máxima potencia que extrae la máxima energía solar posible incluso durante días parcialmente nublados.
+                    </p>
+                </div>
+
+                <!-- Wi-Fi Monitoring -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <span class="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">TELEMETRÍA EN VIVO</span>
+                    <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">Monitoreo Wi-Fi</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Permite observar el comportamiento energético de tu hogar, ver la recarga de baterías y recibir diagnósticos preventivos en forma remota.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUÉ PUEDE ALIMENTAR Y CARGAS -->
+    <section id="capacidad" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-600 tracking-widest uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Dimensionamiento Responsable</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                    ¿Qué electrodomésticos puede alimentar?
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                    Un inversor de 5 kW soporta múltiples cargas de una vivienda residencial, con criterio técnico de simultaneidad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Consumos Soportados Habituales -->
+                <div class="bg-emerald-50/50 p-6 sm:p-8 rounded-2xl border border-emerald-200">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-emerald-500 text-white rounded-xl flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-circle-check text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-navy-900">Consumos Habituales Soportados</h3>
+                            <p class="text-xs text-emerald-800">Ideal para mantener la vivienda plenamente funcional</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                            <span class="text-xs font-semibold text-slate-800">Iluminación LED</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-snowflake text-blue-500"></i>
+                            <span class="text-xs font-semibold text-slate-800">Heladera / Freezers</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-wifi text-indigo-500"></i>
+                            <span class="text-xs font-semibold text-slate-800">Router Wi-Fi</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-tv text-purple-500"></i>
+                            <span class="text-xs font-semibold text-slate-800">Smart TV / Audio</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-laptop text-slate-600"></i>
+                            <span class="text-xs font-semibold text-slate-800">Computadoras</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-fan text-teal-500"></i>
+                            <span class="text-xs font-semibold text-slate-800">Ventiladores</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-charging-station text-emerald-600"></i>
+                            <span class="text-xs font-semibold text-slate-800">Cargadores celular</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-water-ladder text-cyan-600"></i>
+                            <span class="text-xs font-semibold text-slate-800">Bombas pequeñas</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-blender text-rose-500"></i>
+                            <span class="text-xs font-semibold text-slate-800">Pequeños electrod.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cargas que requieren evaluación específica -->
+                <div class="bg-amber-50/50 p-6 sm:p-8 rounded-2xl border border-amber-200">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-amber-500 text-white rounded-xl flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-navy-900">Requieren Evaluación Específica</h3>
+                            <p class="text-xs text-amber-900">Requieren analizar pico de arranque, simultaneidad y horas</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded-xl border border-amber-200 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-slate-800"><i class="fa-solid fa-wind text-cyan-600 mr-2"></i>Aires Acondicionados</span>
+                            <span class="text-[11px] text-amber-800 font-mono">Evaluación por potencia BTU/Frigorías</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-amber-200 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-slate-800"><i class="fa-solid fa-shower text-rose-600 mr-2"></i>Termotanque Eléctrico</span>
+                            <span class="text-[11px] text-amber-800 font-mono">Resistencia de alta potencia térmica</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-amber-200 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-slate-800"><i class="fa-solid fa-fire-burner text-orange-600 mr-2"></i>Horno / Cocina Eléctrica</span>
+                            <span class="text-[11px] text-amber-800 font-mono">Cargas inductivas / resistivas masivas</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-amber-200 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-slate-800"><i class="fa-solid fa-faucet-drip text-blue-600 mr-2"></i>Bombas de alta potencia</span>
+                            <span class="text-[11px] text-amber-800 font-mono">Verificar corriente pico en el arranque</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-600 mt-4 leading-relaxed italic">
+                        * No significa que sean imposibles de utilizar. Significa que nuestro equipo de ingeniería debe dimensionar adecuadamente las prioridades para garantizar el equilibrio del banco de baterías.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULADOR DE CONSUMO SIMPLE INTERACTIVO -->
+    <section class="py-16 bg-slate-900 text-white border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-brand-500 tracking-widest uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/30">Herramienta Interactiva</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3">
+                    Simulador de Uso de Respaldo
+                </h2>
+                <p class="text-slate-400 mt-2 text-xs sm:text-sm">
+                    Selecciona los consumos que te gustaría mantener durante un corte de luz para conocer la estimación técnica preliminar:
+                </p>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6" id="sim-options">
+                    <label class="cursor-pointer bg-slate-700/60 p-3 rounded-xl border border-slate-600 flex items-center gap-3 hover:border-brand-500 transition-all">
+                        <input type="checkbox" class="accent-brand-500 w-4 h-4 sim-checkbox" data-watts="80" checked>
+                        <div>
+                            <p class="text-xs font-bold text-white">Iluminación LED</p>
+                            <p class="text-[10px] text-slate-400">~80 W</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer bg-slate-700/60 p-3 rounded-xl border border-slate-600 flex items-center gap-3 hover:border-brand-500 transition-all">
+                        <input type="checkbox" class="accent-brand-500 w-4 h-4 sim-checkbox" data-watts="200" checked>
+                        <div>
+                            <p class="text-xs font-bold text-white">Heladera</p>
+                            <p class="text-[10px] text-slate-400">~200 W</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer bg-slate-700/60 p-3 rounded-xl border border-slate-600 flex items-center gap-3 hover:border-brand-500 transition-all">
+                        <input type="checkbox" class="accent-brand-500 w-4 h-4 sim-checkbox" data-watts="30" checked>
+                        <div>
+                            <p class="text-xs font-bold text-white">Wi-Fi + Móvil</p>
+                            <p class="text-[10px] text-slate-400">~30 W</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer bg-slate-700/60 p-3 rounded-xl border border-slate-600 flex items-center gap-3 hover:border-brand-500 transition-all">
+                        <input type="checkbox" class="accent-brand-500 w-4 h-4 sim-checkbox" data-watts="120" checked>
+                        <div>
+                            <p class="text-xs font-bold text-white">TV / Computadora</p>
+                            <p class="text-[10px] text-slate-400">~120 W</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer bg-slate-700/60 p-3 rounded-xl border border-slate-600 flex items-center gap-3 hover:border-brand-500 transition-all">
+                        <input type="checkbox" class="accent-brand-500 w-4 h-4 sim-checkbox" data-watts="1200">
+                        <div>
+                            <p class="text-xs font-bold text-white">Aire Acond. Inverter</p>
+                            <p class="text-[10px] text-slate-400">~1200 W</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer bg-slate-700/60 p-3 rounded-xl border border-slate-600 flex items-center gap-3 hover:border-brand-500 transition-all">
+                        <input type="checkbox" class="accent-brand-500 w-4 h-4 sim-checkbox" data-watts="600">
+                        <div>
+                            <p class="text-xs font-bold text-white">Bomba de agua chica</p>
+                            <p class="text-[10px] text-slate-400">~600 W</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Live Results Display -->
+                <div class="bg-navy-950 p-4 rounded-xl border border-brand-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Potencia Simultánea Estimada:</p>
+                        <p class="text-2xl font-black text-brand-500" id="sim-power-output">430 W</p>
+                        <p class="text-[11px] text-slate-400">De 5.000 W disponibles en el inversor (8,6% de carga).</p>
+                    </div>
+
+                    <a href="#evaluar" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider transition-all whitespace-nowrap">
+                        Solicitar Estudio Técnico
+                    </a>
+                </div>
+
+                <p class="text-[11px] text-slate-400 mt-4 text-center leading-relaxed">
+                    * La autonomía y las cargas que pueden mantenerse durante un corte dependen de la simultaneidad y radiación solar. Solicita una evaluación para dimensionarlo formalmente según tus necesidades.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARACIÓN RED vs SISTEMA INTIWATT -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-600 tracking-widest uppercase bg-brand-50 px-3 py-1 rounded-full">Análisis Objetivo</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                    Red Convencional vs. Sistema IntiWatt Off-Grid
+                </h2>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b-2 border-slate-200">
+                            <th class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-slate-500">Característica</th>
+                            <th class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-slate-500 bg-slate-50">Red Convencional</th>
+                            <th class="py-4 px-4 text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50/50">Sistema IntiWatt Off-Grid</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-xs sm:text-sm">
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-navy-900">Origen de Energía</td>
+                            <td class="py-3.5 px-4 text-slate-600 bg-slate-50">100% Dependiente de red externa</td>
+                            <td class="py-3.5 px-4 text-navy-900 font-medium bg-brand-50/20">Generación propia fotovoltaica + almacenamiento</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-navy-900">Respuesta ante cortes</td>
+                            <td class="py-3.5 px-4 text-rose-600 bg-slate-50 font-medium"><i class="fa-solid fa-xmark mr-1.5"></i> Apagón inmediato</td>
+                            <td class="py-3.5 px-4 text-emerald-700 bg-brand-50/20 font-bold"><i class="fa-solid fa-check mr-1.5"></i> Respaldo por Batería de Litio</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-navy-900">Resguardo en Almacenamiento</td>
+                            <td class="py-3.5 px-4 text-slate-600 bg-slate-50">Sin capacidad de reserva propia</td>
+                            <td class="py-3.5 px-4 text-navy-900 font-medium bg-brand-50/20">5,12 kWh en banco de Litio LiFePO4</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-navy-900">Rol de la Red Eléctrica</td>
+                            <td class="py-3.5 px-4 text-slate-600 bg-slate-50">Suministro principal único</td>
+                            <td class="py-3.5 px-4 text-navy-900 font-medium bg-brand-50/20">Respaldo secundario / carga auxiliar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIO E INVERSIÓN (HIGH IMPACT COMMERCIAL SECTION) -->
+    <section id="inversion" class="py-20 bg-slate-900 text-white border-b border-slate-800 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-500 tracking-widest uppercase bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/30">
+                    Propuesta Comercial Transparente
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+                    Inversión Llave en Mano
+                </h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">
+                    Sistema Fotovoltaico Residencial Off-Grid con Entrada de Red — Santiago del Estero y Tucumán
+                </p>
+            </div>
+
+            <!-- Big Price Card -->
+            <div class="bg-slate-800 rounded-3xl border-2 border-brand-500 p-8 sm:p-12 shadow-2xl relative overflow-hidden amber-glow">
+                <div class="text-center border-b border-slate-700 pb-8 mb-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-2">TOTAL LLAVE EN MANO</span>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <span class="text-4xl sm:text-6xl font-black text-brand-500 tracking-tight">USD 4.520,37</span>
+                        <span class="text-slate-400 text-xl font-bold hidden sm:inline">|</span>
+                        <span class="text-2xl sm:text-4xl font-bold text-slate-200">ARS 6.961.369,80</span>
+                    </div>
+                    
+                    <div class="flex flex-wrap items-center justify-center gap-4 mt-4 text-xs text-slate-400">
+                        <span class="bg-slate-900 px-3 py-1 rounded-full border border-slate-700 font-mono">Cotización ref: $1.540 ARS/USD</span>
+                        <span class="bg-slate-900 px-3 py-1 rounded-full border border-slate-700 font-mono">Validez de oferta: 15 días</span>
+                    </div>
+                </div>
+
+                <!-- Price Breakdown Table -->
+                <div class="max-w-xl mx-auto space-y-3 mb-8 text-xs sm:text-sm">
+                    <div class="flex justify-between py-2 border-b border-slate-700/60">
+                        <span class="text-slate-400">Subtotal Neto:</span>
+                        <span class="font-mono text-slate-200">USD 3.846,12 <span class="text-slate-500 text-xs">(ARS 5.923.024,80)</span></span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b border-slate-700/60">
+                        <span class="text-slate-400">Impuestos (IVA):</span>
+                        <span class="font-mono text-slate-200">USD 674,25 <span class="text-slate-500 text-xs">(ARS 1.038.345,00)</span></span>
+                    </div>
+                    <div class="flex justify-between py-2 font-bold text-white text-base pt-2">
+                        <span>TOTAL FINAL:</span>
+                        <span class="font-mono text-brand-500">USD 4.520,37 <span class="text-slate-300 text-xs font-normal">(ARS 6.961.369,80)</span></span>
+                    </div>
+                </div>
+
+                <!-- Forma de Pago / Payment Schedule Timeline -->
+                <div class="pt-6 border-t border-slate-700">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-300 text-center mb-6">
+                        Esquema de Hitos de Pago
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+                        
+                        <!-- Hito 1 -->
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                            <span class="text-[10px] font-bold text-brand-500 font-mono uppercase bg-brand-500/10 px-2 py-0.5 rounded">HITO 01</span>
+                            <h4 class="font-bold text-white text-sm mt-2">Anticipo y Provisión</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Firma de contrato y acopio de materiales fotovoltaicos.</p>
+                            <p class="text-sm font-mono font-bold text-slate-200 mt-3">USD 2.260,19</p>
+                            <p class="text-[10px] text-slate-400 font-mono">ARS 3.480.692,60</p>
+                        </div>
+
+                        <!-- Hito 2 -->
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                            <span class="text-[10px] font-bold text-brand-500 font-mono uppercase bg-brand-500/10 px-2 py-0.5 rounded">HITO 02</span>
+                            <h4 class="font-bold text-white text-sm mt-2">Entrega de Equipos</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Entrega de inversor 5 kW y batería de litio LiFePO4 en obra.</p>
+                            <p class="text-sm font-mono font-bold text-slate-200 mt-3">USD 1.104,18</p>
+                            <p class="text-[10px] text-slate-400 font-mono">ARS 1.700.437,20</p>
+                        </div>
+
+                        <!-- Hito 3 -->
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                            <span class="text-[10px] font-bold text-brand-500 font-mono uppercase bg-brand-500/10 px-2 py-0.5 rounded">HITO 03</span>
+                            <h4 class="font-bold text-white text-sm mt-2">Fin de Obra y Servicio</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Conexionado, pruebas de carga y puesta en servicio definitiva.</p>
+                            <p class="text-sm font-mono font-bold text-slate-200 mt-3">USD 1.156,00</p>
+                            <p class="text-[10px] text-slate-400 font-mono">ARS 1.780.240,00</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Execution Deadlines and Guarantees Badge -->
+                <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 flex items-center gap-3">
+                        <i class="fa-solid fa-calendar-check text-brand-500 text-xl"></i>
+                        <div>
+                            <p class="font-bold text-white">Plazo de Ejecución:</p>
+                            <p class="text-slate-400">15 – 20 días hábiles desde la confirmación del Hito 1.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 flex items-center gap-3">
+                        <i class="fa-solid fa-shield-virus text-emerald-400 text-xl"></i>
+                        <div>
+                            <p class="font-bold text-white">Garantía del Proyecto:</p>
+                            <p class="text-slate-400">Instalación y B.O.M.: 6 meses. Equipos: según fabricante.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button in Pricing -->
+                <div class="mt-8 text-center">
+                    <a href="#evaluar" class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-bold px-10 py-4 rounded-xl transition-all uppercase tracking-wider text-sm shadow-lg">
+                        Quiero evaluar mi instalación
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿PARA QUIÉN TIENE SENTIDO ESTE SISTEMA? -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-navy-900 tracking-widest uppercase bg-slate-100 px-3 py-1 rounded-full">Evaluación de Encaje</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                    ¿Para quién tiene sentido este sistema?
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Positive fit -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-lg font-bold text-navy-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-thumbs-up text-emerald-600"></i>
+                        Este sistema tiene sentido si...
+                    </h3>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                            <span>Sufres cortes frecuentes de luz en Santiago del Estero o Tucumán y necesitas continuidad.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                            <span>Quieres proteger cargas críticas como heladeras, iluminación, conectividad y confort básico.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                            <span>Deseas reducir sensiblemente la dependencia permanente de la red eléctrica convencional.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                            <span>Estás construyendo o reformando una vivienda y quieres integrar energía solar de forma profesional.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Custom fit needed -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-lg font-bold text-navy-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-amber-600"></i>
+                        Puede requerir otra configuración si...
+                    </h3>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-arrow-right text-amber-600 mt-1"></i>
+                            <span>Pretendes alimentar múltiples acondicionadores de aire de alta potencia en simultáneo todo el día.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-arrow-right text-amber-600 mt-1"></i>
+                            <span>Necesitas varios días continuos de autonomía absoluta 100% desconectado de la red sin sol.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-arrow-right text-amber-600 mt-1"></i>
+                            <span>Tienes consumo industrial o motores trifásicos de alta potencia de arranque.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-8 bg-brand-50 border border-brand-200 p-6 rounded-2xl text-center">
+                <h4 class="font-bold text-navy-900 text-base mb-1">No todos los sistemas Off-Grid son iguales</h4>
+                <p class="text-xs sm:text-sm text-slate-700 max-w-2xl mx-auto leading-relaxed">
+                    Esta configuración de 5 kW / 5,12 kWh es una <strong class="text-navy-900">solución residencial de referencia</strong>. La configuración definitiva se valida y ajusta con los datos exactos de tu vivienda.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- METODOLOGÍA DE TRABAJO INTIWATT -->
+    <section id="proceso" class="py-16 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-600 tracking-widest uppercase bg-brand-100 px-3 py-1 rounded-full">Proceso de Trabajo</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                    Así trabajamos en IntiWatt
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+                
+                <div class="bg-white p-4 rounded-xl border border-slate-200 relative">
+                    <span class="text-2xl font-black text-brand-500">01</span>
+                    <h3 class="font-bold text-navy-900 text-sm mt-1">Evaluamos</h3>
+                    <p class="text-[11px] text-slate-500 mt-1">Analizamos consumos, ubicación y prioridades de la vivienda.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 relative">
+                    <span class="text-2xl font-black text-brand-500">02</span>
+                    <h3 class="font-bold text-navy-900 text-sm mt-1">Diseñamos</h3>
+                    <p class="text-[11px] text-slate-500 mt-1">Definimos generación, potencia de inversor y capacidad de batería.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 relative">
+                    <span class="text-2xl font-black text-brand-500">03</span>
+                    <h3 class="font-bold text-navy-900 text-sm mt-1">Presupuestamos</h3>
+                    <p class="text-[11px] text-slate-500 mt-1">Presentamos propuesta formal transparente y llave en mano.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 relative">
+                    <span class="text-2xl font-black text-brand-500">04</span>
+                    <h3 class="font-bold text-navy-900 text-sm mt-1">Instalamos</h3>
+                    <p class="text-[11px] text-slate-500 mt-1">Montaje de estructuras, paneles, protecciones y conexionado.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 relative">
+                    <span class="text-2xl font-black text-brand-500">05</span>
+                    <h3 class="font-bold text-navy-900 text-sm mt-1">Puesta en marcha</h3>
+                    <p class="text-[11px] text-slate-500 mt-1">Pruebas de carga, calibración de baterías y capacitación al usuario.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 relative">
+                    <span class="text-2xl font-black text-brand-500">06</span>
+                    <h3 class="font-bold text-navy-900 text-sm mt-1">Monitoreamos</h3>
+                    <p class="text-[11px] text-slate-500 mt-1">Sistema preparado para supervisión técnica remota.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FILOSOFÍA COMERCIAL INTIWATT -->
+    <section class="py-16 bg-navy-900 text-white border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="w-12 h-12 bg-brand-500 text-navy-900 rounded-2xl flex items-center justify-center mx-auto text-xl font-bold">
+                <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                "Si no es viable, se lo decimos. Con datos."
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                No dimensionamos un sistema para vender más equipos. Lo dimensionamos para que tenga sentido técnico para la vivienda y sentido económico para la inversión.
+            </p>
+        </div>
+    </section>
+
+    <!-- FINAL CTA & EVALUATION FORM -->
+    <section id="evaluar" class="py-20 bg-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs font-bold text-brand-600 tracking-widest uppercase bg-brand-50 px-3 py-1 rounded-full">Inicia tu Evaluación</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-3">
+                        ¿Quieres saber si este sistema sirve para tu vivienda?
+                    </h2>
+                    <p class="text-slate-600 mt-2 text-xs sm:text-sm">
+                        Cuéntanos qué necesitas respaldar y dónde está ubicada tu vivienda. Evaluamos la configuración adecuada para tu caso.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <form id="evaluationForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Nombre Completo *</label>
+                            <input type="text" id="nombre" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Localidad (Santiago del Estero / Tucumán) *</label>
+                            <input type="text" id="localidad" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="Ej: Capital, Yerba Buena, La Banda, Concepción...">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="telefono" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="Ej: 385 154 000000">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-navy-900 mb-1">Tipo de Proyecto *</label>
+                            <select id="tipoProyecto" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                <option value="Vivienda Habitada">Vivienda Habitada</option>
+                                <option value="Vivienda en Construcción">Vivienda en Construcción</option>
+                                <option value="Casa de Campo / Finca">Casa de Campo / Finca</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 mb-1">Principales consumos a respaldar</label>
+                        <textarea id="consumos" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="Ej: Heladera, luces, TV, router y 1 aire acondicionado en dormitorio."></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <button type="submit" class="flex-1 bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl shadow-md transition-all text-sm uppercase tracking-wider">
+                            QUIERO EVALUAR MI INSTALACIÓN
+                        </button>
+                        <button type="button" onclick="openWhatsApp()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-4 rounded-xl transition-all text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>WHATSAPP</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="formSuccess" class="hidden mt-4 p-4 bg-emerald-100 text-emerald-800 rounded-xl text-center text-xs font-semibold">
+                    <i class="fa-solid fa-circle-check text-lg mr-2"></i> ¡Gracias! Redirigiendo a atención técnica por WhatsApp...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-xl font-extrabold text-white">Inti<span class="text-brand-500">Watt</span></span>
+                </div>
+                <p class="text-slate-400 leading-relaxed">
+                    Somos la Eficiencia Energética. Ingeniería, transparencia y desarrollo de proyectos fotovoltaicos para Santiago del Estero y Tucumán.
+                </p>
+                <a href="https://intiwatt.com" class="text-[11px] text-brand-500 hover:underline mt-2 inline-block">www.intiwatt.com</a>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3">Documentación Incluida</h4>
+                <ul class="space-y-1.5 text-slate-400">
+                    <li>• Manual de Operación de Usuario</li>
+                    <li>• Certificado de Garantía</li>
+                    <li>• Diagrama Unifilar Técnico</li>
+                    <li>• Protocolo de Puesta en Servicio</li>
+                    <li>• Acceso a App de Monitoreo Remoto</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3">Términos Comerciales</h4>
+                <p class="text-slate-400 leading-relaxed">
+                    Cotización de referencia: $1.540 ARS/USD. Validez de oferta: 15 días. Ejecución sujeto a disponibilidad de insumos y verificación técnica de sitio.
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-800 text-center text-slate-600 text-[11px]">
+            &copy; 2026 IntiWatt — Eficiencia Energética. Santiago del Estero y Tucumán, Argentina. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <button onclick="openWhatsApp()" class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </button>
+
+    <!-- JAVASCRIPT VANILLA -->
+    <script>
+        // ==========================================
+        // CONFIGURACIÓN DE TELÉFONO DE WHATSAPP
+        // ==========================================
+        const WHATSAPP_NUMBER = "5493518670464";
+
+        /**
+         * Abre WhatsApp con mensaje predeterminado
+         */
+        function openWhatsApp(customText) {
+            const message = customText || "Hola IntiWatt, quiero solicitar una evaluación para el Sistema Fotovoltaico Off-Grid de 5 kW / 5,12 kWh en Santiago del Estero / Tucumán.";
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        /**
+         * Manejo del formulario de evaluación
+         */
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const localidad = document.getElementById('localidad').value;
+            const telefono = document.getElementById('telefono').value;
+            const tipoProyecto = document.getElementById('tipoProyecto').value;
+            const consumos = document.getElementById('consumos').value;
+
+            const text = `Hola IntiWatt, solicito evaluar mi instalación Off-Grid:\n\n- Nombre: ${nombre}\n- Localidad: ${localidad}\n- Teléfono: ${telefono}\n- Proyecto: ${tipoProyecto}\n- Consumos: ${consumos}`;
+
+            document.getElementById('formSuccess').classList.remove('hidden');
+            
+            setTimeout(() => {
+                openWhatsApp(text);
+            }, 1000);
+        }
+
+        /**
+         * Lógica del simulador interactivo de potencia
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.sim-checkbox');
+            const output = document.getElementById('sim-power-output');
+
+            function updatePower() {
+                let totalWatts = 0;
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        totalWatts += parseInt(cb.getAttribute('data-watts') || '0');
+                    }
+                });
+
+                const percentage = ((totalWatts / 5000) * 100).toFixed(1);
+                output.innerText = `${totalWatts} W`;
+                output.nextElementSibling.innerText = `De 5.000 W disponibles en el inversor (${percentage}% de capacidad continua).`;
+            }
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', updatePower);
+            });
+
+            updatePower();
+        });
+    </script>
+</body>
+</html>
